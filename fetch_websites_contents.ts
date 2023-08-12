@@ -33,13 +33,20 @@ if (import.meta.main) {
 
     let contents = []
 
-    for (const url of urls) {
+    for (const [index, url] of urls.entries()) {
+      console.log(url)
       const response = await fetch(url)
       const html = await response.text()
       const $ = cheerio.load(html)
 
-      const content = $('body').text()    
-      contents.push({ [url]: content })
+      const rawContent = $('body').text()
+
+      // body内にあるjsonを消すために追加
+      const jsonContent = $('body')[0].children[1].children[0].data
+      const content = rawContent.replace(jsonContent, '')
+  
+      console.log(`finish ${index + 1}/${urls.length}`)
+      contents.push({ id: index + 1, url, content })
     }
 
     await Deno.writeTextFile('contents.json', JSON.stringify(contents))
