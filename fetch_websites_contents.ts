@@ -1,6 +1,4 @@
-import { parse as cliParams } from "https://deno.land/std/flags/mod.ts";
-import { parse } from "https://deno.land/x/xml/mod.ts"
-import { cheerio } from "https://deno.land/x/cheerio@1.0.7/mod.ts";
+import { cliParams, cheerio, parse } from './depth.ts'
 
 type XmlType = {
   xml: {
