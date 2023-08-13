@@ -1,8 +1,5 @@
-import { PromptTemplate, Document } from 'https://esm.sh/langchain@0.0.113'
-import { ChatOpenAI } from 'https://esm.sh/langchain@0.0.113/chat_models/openai'
-import { loadSummarizationChain } from 'https://esm.sh/langchain@0.0.113/chains'
-import { CharacterTextSplitter } from 'https://esm.sh/langchain@0.0.113/text_splitter'
 import contents from './contents.json' assert { type: 'json' }
+import { PromptTemplate, ChatOpenAI, loadSummarizationChain, CharacterTextSplitter} from './depth.ts'
 
 const openAIApiKey = ''
 
