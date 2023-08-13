@@ -1,25 +1,10 @@
 import contents from './contents.json' assert { type: 'json' }
 import { PromptTemplate, ChatOpenAI, loadSummarizationChain, CharacterTextSplitter} from './depth.ts'
+import { Document } from './types.ts'
 
 const openAIApiKey = ''
 
 if (!openAIApiKey) throw new Error('Please Check OpenAI API Key.')
-
-export interface DocumentInput<Metadata extends Record<string, any> = Record<string, any>> {
-  pageContent: string;
-  metadata?: Metadata;
-}
-
-class Document<Metadata extends Record<string, any> = Record<string, any>> implements DocumentInput
-{
-  pageContent: string;
-  metadata: Metadata;
-
-  constructor(fields: DocumentInput<Metadata>) {
-    this.pageContent = fields.pageContent.toString()
-    this.metadata = fields.metadata ?? ({} as Metadata)
-  }
-}
 
 if (import.meta.main) {
   const llm = new ChatOpenAI({

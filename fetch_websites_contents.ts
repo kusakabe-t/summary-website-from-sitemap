@@ -1,21 +1,6 @@
 import { cliParams, cheerio, parse } from './depth.ts'
+import { XmlType } from './types.ts'
 
-type XmlType = {
-  xml: {
-    [params: string]: string | number
-  }
-  urlset: {
-    url: {
-      loc: string, lastmod: string, changefreq: string, priority: number 
-    }[]
-    "@xmlns": string
-    "@xmlns:news": string
-    "@xmlns:xhtml": string
-    "@xmlns:mobile": string
-    "@xmlns:image": string
-    "@xmlns:video": string
-  }
-}
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
