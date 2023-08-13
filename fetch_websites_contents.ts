@@ -1,8 +1,6 @@
 import { cliParams, cheerio, parse } from './depth.ts'
 import { XmlType } from './types.ts'
 
-
-// Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
   const args = cliParams(Deno.args);
   const url = args.url
@@ -16,7 +14,7 @@ if (import.meta.main) {
     const urlObjects = data.urlset.url
     const urls = urlObjects.map((urlObject) => urlObject.loc)
 
-    let contents = []
+    const contents = []
 
     for (const [index, url] of urls.entries()) {
       console.log(url)

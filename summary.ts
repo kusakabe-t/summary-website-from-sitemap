@@ -4,6 +4,7 @@ import { Document } from './types.ts'
 
 const openAIApiKey = ''
 
+if (!contents) throw new Error('Please run fetch_websites_contents.')
 if (!openAIApiKey) throw new Error('Please Check OpenAI API Key.')
 
 if (import.meta.main) {
@@ -26,7 +27,7 @@ if (import.meta.main) {
 	 })
 	const chain = loadSummarizationChain(llm, { type: "map_reduce", combineMapPrompt: prompt, combinePrompt: prompt })
 
-	let summaryContents = []
+	const summaryContents = []
 
 	for (const [index, rawContent] of contents.entries()) {
 		console.log('start: ', rawContent.url)
