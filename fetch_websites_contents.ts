@@ -27,6 +27,7 @@ try {
     const title = $('title').text()
 
     // body内にあるjsonを消すために追加
+    // サイトやフロントのフレームワークに依存するため、適宜書き換える
     const jsonContent = $('body')[0].children[1].children[0].data
     const content = rawContent.replace(jsonContent, '')
 
